@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Slider HTML & CSS | CodingNepal</title>
+<style>  
+  /* Importing Google fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+
+body {
+  justify-content: center;
+  min-height: 100vh;
+ background: url(bg.jpg) no-repeat;
+	  background-size: cover;
+	  background-position: center;
+	  font-family: serif;
+      margin: 0;
+      padding: 0;
+}
+
+header {
+      background-color: rgba(0,0,0,0.2);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3.6rem;
+	  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+    }
+
+    /* Navigation Buttons */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      padding: 10px 20px;
+      background-color: #483D8B;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #6A5ACD;
+      transform: translateY(-3px);
+	  }
+
+
+.card-wrapper {
+  max-width: 1800px;
+  margin: 0 60px 35px;
+  padding: 20px 10px;
+  overflow: hidden;
+}
+
+.card-list .card-item {
+  list-style: none;
+}
+
+.card-list .card-item .card-link {
+  display: block;
+  background: #fff;
+  padding: 35px;
+  user-select: none;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+  margin-top: 40px;
+}
+
+.card-list .card-item .card-link:active {
+  cursor: grabbing;
+}
+
+.card-list .card-item .card-link:hover {
+  border-color: #5372F0;
+}
+
+.card-list .card-link .card-image {
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card-list .card-link .badge {
+  color: #5372F0;
+  width: fit-content;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  font-weight: 500;
+  background: #DDE4FF;
+  margin: 16px 0 18px;
+}
+
+.card-list .card-link .badge-designer {
+  color: #B22485;
+  background: #F7DFF5;
+}
+
+.card-list .card-link .badge-marketer {
+  color: #B25A2B;
+  background: #FFE3D2;
+}
+
+.card-list .card-link .badge-gamer {
+  color: #205C20;
+  background: #D6F8D6;
+}
+
+.card-list .card-link .badge-editor {
+  color: #856404;
+  background: #fff3cd;
+}
+
+.card-list .card-link .card-title {
+  color: #000;
+  font-size: 1.19rem;
+  font-weight: 600;
+}
+
+.card-list .card-link .card-button {
+  height: 35px;
+  width: 35px;
+  color: #5372F0;
+  margin: 30px 0 5px;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #5372F0;
+  transform: rotate(-45deg);
+  transition: 0.4s ease;
+}
+
+.card-list .card-link:hover .card-button {
+  color: #fff;
+  background: #5372F0;
+}
+
+.card-wrapper .swiper-pagination-bullet {
+  height: 13px;
+  width: 13px;
+  opacity: 0.5;
+  background: #5372F0;
+}
+
+.card-wrapper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button {
+  color: #5372F0;
+  margin-top: -35px;
+}
+
+/* Responsive media query code for small screens */
+@media (max-width: 768px) {
+  .card-wrapper {
+    margin: 0 10px 25px;
+  }
+
+  .card-wrapper .swiper-slide-button {
+    display: none;
+  }
+}
+
+
+    footer {
+	font-size: 20px;
+      text-align: center;
+      padding: 25px;
+      background-color: rgba(0,0,0,0.2);
+      color: #fff;
+      width: 100%;
+      margin-top: 70px;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+	
+</style>
+
+  <!-- Linking Google fonts for icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <!-- Linking SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>CASSANDRA MANABAT</h1>
+    <nav>
+      <ul>
+        <li><a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/try.html" onclick="showSection('about')">ABOUT ME</a></li>
+        <li><a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/index2.html" onclick="showSection('contact')">CONTACT & SOCIAL MEDIAS</a></li>
+        <li><a href="file:///C:/Users/cassa/OneDrive/Desktop/Emp-tech%20finals/galley.html">PHOTO GALLERY</a></li>
+		<li><a href="#more" onclick="showSection('more')">HOBBIES</a></li>
+		
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container swiper">
+    <div class="card-wrapper">
+      <!-- Card slides container -->
+      <ul class="card-list swiper-wrapper">
+	   <li class="card-item swiper-slide">
+          <a href="#" class="card-link">
+            <img src="ml2.jpg" alt="Card Image" class="card-image">
+            <p class="badge badge-developer">Online Gamer</p>
+            <h2 class="card-title">Gaming taught me independence, especially in MLBB, where I mastered multiple roles and thrived on strategic thinking. Adapting to different playstyles became second nature, making every match a challenge worth tackling. Now, I'm stepping into a new battlefield "Dota 2" ready to test my skills and embrace an even deeper level of gaming.</h2>
+            <button class="card-button material-symbols-rounded">arrow_forward</button>
+          </a>
+        </li>
+        <li class="card-item swiper-slide">
+          <a href="#" class="card-link">
+            <img src="zen.jpg" alt="Card Image" class="card-image">
+            <p class="badge badge-designer">Traditional Artist</p>
+            <h2 class="card-title">Art has always been an unmeasured passion of mine, flowing endlessly from my mind to paper. Whether it's sketching anime, designing structures, or capturing the essence of a person, every stroke feels like a piece of my soul taking shape. With each drawing, I see not just lines and colors but a story waiting to be told.</h2>
+            <button class="card-button material-symbols-rounded">arrow_forward</button>
+          </a>
+        </li>
+		 <li class="card-item swiper-slide">
+          <a href="#" class="card-link">
+            <img src="cat.jpg" alt="Card Image" class="card-image">
+            <p class="badge badge-editor">Coding noobie</p>
+            <h2 class="card-title">I enjoy coding, even though I’m far from an expert, I still need tutorials and guides to bring my ideas to life. The thrill of making something work is addictive, but nothing makes me explode faster than a stubborn error crashing my code. Still, no matter how many times it breaks, I keep coming back, determined to solve the mystery one bug at a time!</h2>
+            <button class="card-button material-symbols-rounded">arrow_forward</button>
+          </a>
+        </li>
+		<li class="card-item swiper-slide">
+          <a href="#" class="card-link">
+            <img src="ts.jpg" alt="Card Image" class="card-image">
+            <p class="badge badge-gamer">Music Listener</p>
+            <h2 class="card-title">My music taste is all over the place, but Taylor Swift holds a special place in my heart. Her songs resonate deeply with me, whether they’re about life, chasing dreams, or navigating the ups and downs of relationships. Each lyric feels like a chapter of my own story, filled with emotion and meaning. You can visit my playlist on Spotify, where my untold story and secrets are hidden in rhymes.</h2>
+            <button class="card-button material-symbols-rounded">arrow_forward</button>
+          </a>
+        </li>
+        <li class="card-item swiper-slide">
+          <a href="#" class="card-link">
+            <img src="py.jpg" alt="Card Image" class="card-image">
+            <p class="badge badge-marketer">Cat Lover</p>
+            <h2 class="card-title">My home is filled with cats, each one a little ball of mischief and comfort. They sprint through the house, knocking things over and claiming every corner as their own. Sure, their playful chaos turns my home into a fluffy battlefield, but every purr and cuddle makes the mess worth it. No matter what, they’re the ones who bring me the purest joy and warmth.</h2>
+            <button class="card-button material-symbols-rounded">arrow_forward</button>
+          </a>
+        </li>
+		<li class="card-item swiper-slide">
+          <a href="#" class="card-link">
+            <img src="lol.jpg" alt="Card Image" class="card-image">
+            <p class="badge badge-designer">Studying</p>
+            <h2 class="card-title">I’m glad to stay focused on my studies, even when my room is a chaotic mess of notes and problems. I’m the kind of student who thrives in the quiet, surrounded by papers, tackling whatever challenges come my way. Sure, I get lazy sometimes, but somehow, I still manage to pull through with high scores. Despite it all, I aim for the best, knowing that my effort no matter how messy will get me there.</h2>
+            <button class="card-button material-symbols-rounded">arrow_forward</button>
+          </a>
+        </li>
+   </ul>
+
+  
+	  <footer>
+    <p>&copy; 2025 CASSANDRA G. MANABAT, ALL RIGHTS RESERVED.</p>
+  </footer>
+  
+ 
+       <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- Navigation Buttons -->
+      <div class="swiper-slide-button swiper-button-prev"></div>
+      <div class="swiper-slide-button swiper-button-next"></div>
+    </div>
+  </div>
+
+  <!-- Linking SwiperJS script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Linking custom script -->
+  <script src="script.js"></script>
+  
+  <script>
+  new Swiper('.card-wrapper', {
+    loop: true,
+    spaceBetween: 30,
+
+    // Pagination bullets
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // Responsive breakpoints
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        768: {
+            slidesPerView: 2
+        },
+        1024: {
+            slidesPerView: 3
+        }
+    }
+});
+</script>
+
+</body>
+</html>
